@@ -1,13 +1,12 @@
 Summary:	Open Office Quickstarter
 Summary(pl):	Szybszy start Open Office
 Name:		oooqs
-Version:	1.0
-%define		_rc	rc3
-Release:	0.%{_rc}.1
+Version:	2.0.3
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}_%{_rc}.tar.gz
-# Source0-md5: d1eecb568523748ee8489c9d61ffadc6
+Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
+# Source0-md5:	5d401aa7250f80734d785d4c286f635b
 URL:		http://segfaultskde.berlios.de/oooqs/
 BuildRequires:	kdebase-devel >= 3.0.5a
 BuildRequires:	qt-devel >= 3.0.5
@@ -26,7 +25,7 @@ KDE System Tray. Mo¿na go u¿ywaæ do przy¶pieszania startu modu³ów Open
 Office bez wchodzeni± w menu.
 
 %prep
-%setup -q -n %{name}-%{version}_%{_rc}
+%setup -q -n %{name}-%{version}
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
@@ -46,6 +45,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang oooqs --with-kde
 
+mv $RPM_BUILD_ROOT/%{_applnkdir}/Utilities $RPM_BUILD_ROOT/%{_applnkdir}/Office
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -55,3 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/[!l]*/*/*/*
 %{_applnkdir}/Office/oooqs.desktop
+%{_datadir}/autostart/oooqs.desktop
