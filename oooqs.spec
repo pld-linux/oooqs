@@ -29,7 +29,7 @@ Office bez wchodzeni± w menu.
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
 export CXXFLAGS
-de_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
@@ -39,11 +39,12 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/pixmaps
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	install
+	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_pixmapsdir}/locolor/16x16/apps/* \
+    $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps
 
 %find_lang oooqs --with-kde
 
@@ -54,6 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_pixmapsdir}/*/*/*/*.png
-%{_pixmapsdir}/*/*/*/*.xpm
+%{_pixmapsdir}/*/*/*/*
 %{_applnkdir}/Office/oooqs.desktop
