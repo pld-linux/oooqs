@@ -2,13 +2,13 @@ Summary:	Open Office Quickstarter
 Summary(pl):	Szybszy start Open Office
 Name:		oooqs
 Version:	0.9.5.1
-Release:	0.3
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
 URL:		http://segfaultskde.berlios.de/oooqs/
-BuildRequires:	kdebase-devel >= 3.0.2
-BuildRequires:	qt-devel >= 3.0.2
+BuildRequires:	kdebase-devel >= 3.0.3
+BuildRequires:	qt-devel >= 3.0.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
