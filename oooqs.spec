@@ -1,7 +1,7 @@
 Summary:	Open Office Quickstarter
 Summary(pl):	Szybszy start Open Office
 Name:		oooqs
-Version:	0.9.5.1
+Version:	1.0RC2
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -29,6 +29,7 @@ Office bez wchodzeni± w menu.
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
 export CXXFLAGS
+de_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
@@ -40,14 +41,9 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/pixmaps
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
-
-# shouldn't bee needed now?
-#cp -R $RPM_BUILD_ROOT%{_datadir}/icons/* $RPM_BUILD_ROOT%{_datadir}/pixmaps
-
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Office
-mv $RPM_BUILD_ROOT%{_applnkdir}/Applications/* \
-	$RPM_BUILD_ROOT%{_applnkdir}/Office
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	install
 
 %find_lang oooqs --with-kde
 
@@ -59,4 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*/*/*/*.png
+%{_pixmapsdir}/*/*/*/*.xpm
 %{_applnkdir}/Office/oooqs.desktop
