@@ -22,7 +22,7 @@ OpenOffice.org modules without having to go through the K-Menu.
 %description -l pl
 Szybszy start Open Office jest ma³± aplikacj±, która uruchamia siê w
 KDE System Tray. Mo¿na go u¿ywaæ do przy¶pieszania startu modu³ów Open
-Office bez wchodzeni± w menu.
+Office bez wchodzenia w menu.
 
 %prep
 %setup -q
