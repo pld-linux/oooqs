@@ -2,7 +2,7 @@ Summary:	Open Office Quickstarter
 Summary(pl):	Szybszy start Open Office
 Name:		oooqs
 Version:	0.9.5.1
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
@@ -46,6 +46,10 @@ install -d $RPM_BUILD_ROOT%{_datadir}/pixmaps
 # shouldn't bee needed now?
 #cp -R $RPM_BUILD_ROOT%{_datadir}/icons/* $RPM_BUILD_ROOT%{_datadir}/pixmaps
 
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Office
+mv $RPM_BUILD_ROOT%{_applnkdir}/Applications/* \
+	$RPM_BUILD_ROOT%{_applnkdir}/Office
+
 %find_lang oooqs --with-kde
 
 %clean
@@ -56,4 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*/*/*/*.png
-%{_applnkdir}/Applications/oooqs.desktop
+%{_applnkdir}/Office/oooqs.desktop
