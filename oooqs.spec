@@ -12,6 +12,7 @@ BuildRequires:	qt-devel >= 3.0.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 OpenOffice.org Quickstarter is a small application that runs in the
@@ -29,6 +30,8 @@ Office bez wchodzeni± w menu.
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
 export CXXFLAGS
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %configure
 
@@ -40,7 +43,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/pixmaps
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-cp -R $RPM_BUILD_ROOT%{_datadir}/icons/* $RPM_BUILD_ROOT%{_datadir}/pixmaps
+# shouldn't bee needed now?
+#cp -R $RPM_BUILD_ROOT%{_datadir}/icons/* $RPM_BUILD_ROOT%{_datadir}/pixmaps
 
 %find_lang oooqs --with-kde
 
@@ -51,6 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/pixmaps/*/*/*/*.png
-%{_datadir}/doc/HTML/en/oooqs/*
+%{_pixmapsdir}/*/*/*/*.png
 %{_applnkdir}/Applications/oooqs.desktop
