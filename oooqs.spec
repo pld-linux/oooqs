@@ -2,7 +2,7 @@ Summary:	Open Office Quickstarter
 Summary(pl):	Szybszy start Open Office
 Name:		oooqs
 Version:	0.9.5.1
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
