@@ -7,6 +7,7 @@ Release:	0.%{_rc}.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}_%{_rc}.tar.gz
+# Source0-md5: d1eecb568523748ee8489c9d61ffadc6
 URL:		http://segfaultskde.berlios.de/oooqs/
 BuildRequires:	kdebase-devel >= 3.0.5a
 BuildRequires:	qt-devel >= 3.0.5
