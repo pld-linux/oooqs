@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Office/Misc
+mv $RPM_BUILD_ROOT%{_applnkdir}/Office/{oooqs.desktop,Misc}
+
 mv $RPM_BUILD_ROOT%{_pixmapsdir}/locolor/16x16/apps/* \
     $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps
 
@@ -56,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*/*/*/*
-%{_applnkdir}/Office/oooqs.desktop
+%{_applnkdir}/Office/Misc/oooqs.desktop
