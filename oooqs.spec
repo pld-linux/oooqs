@@ -25,7 +25,7 @@ KDE System Tray. Mo¿na go u¿ywaæ do przy¶pieszania startu modu³ów Open
 Office bez wchodzeni± w menu.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
@@ -41,11 +41,12 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang oooqs --with-kde
 
-mv $RPM_BUILD_ROOT/%{_applnkdir}/Utilities $RPM_BUILD_ROOT/%{_applnkdir}/Office
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Utilities $RPM_BUILD_ROOT%{_applnkdir}/Office
 
 %clean
 rm -rf $RPM_BUILD_ROOT
