@@ -1,13 +1,14 @@
 Summary:	Open Office Quickstarter
 Summary(pl):	Szybszy start Open Office
 Name:		oooqs
-Version:	1.0RC2
-Release:	1
+Version:	1.0
+%define		_rc	RC2
+Release:	0.%{_rc}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
+Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}%{_rc}.tar.gz
 URL:		http://segfaultskde.berlios.de/oooqs/
-BuildRequires:	kdebase-devel >= 3.0.3
+BuildRequires:	kdebase-devel >= 3.0.5a
 BuildRequires:	qt-devel >= 3.0.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,7 +25,7 @@ KDE System Tray. Mo¿na go u¿ywaæ do przy¶pieszania startu modu³ów Open
 Office bez wchodzeni± w menu.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_rc}
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
