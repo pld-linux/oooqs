@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang oooqs --with-kde
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Utilities $RPM_BUILD_ROOT%{_applnkdir}/Office
+#mv -f $RPM_BUILD_ROOT%{_applnkdir}/Utilities $RPM_BUILD_ROOT%{_applnkdir}/Office
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,5 +56,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/[!l]*/*/*/*
-%{_applnkdir}/Office/oooqs.desktop
+#%{_applnkdir}/Office/oooqs.desktop
 %{_datadir}/autostart/oooqs.desktop
