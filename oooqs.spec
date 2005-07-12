@@ -30,9 +30,6 @@ Office bez wchodzenia w menu.
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
 export CXXFLAGS
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %configure
 
@@ -43,10 +40,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+	kde_htmldir=%{_kdedocdir}
 
 %find_lang oooqs --with-kde
 
-#mv -f $RPM_BUILD_ROOT%{_applnkdir}/Utilities $RPM_BUILD_ROOT%{_applnkdir}/Office
+install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
+mv -f src/oooqs.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,6 +55,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_pixmapsdir}/[!l]*/*/*/*
-#%{_applnkdir}/Office/oooqs.desktop
+%{_iconsdir}/[!l]*/*/*/*
+%{_desktopdir}/kde/oooqs.desktop
 %{_datadir}/autostart/oooqs.desktop
