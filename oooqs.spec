@@ -39,14 +39,13 @@ export CXXFLAGS
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
 %find_lang oooqs --with-kde
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
 mv -f src/oooqs.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
