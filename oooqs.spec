@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang oooqs --with-kde
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
-mv -f src/oooqs.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
+cp src/oooqs.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
