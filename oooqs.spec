@@ -10,9 +10,8 @@ Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
 URL:		http://segfaultskde.berlios.de/oooqs/
 BuildRequires:	kdebase-devel >= 3.0.5a
 BuildRequires:	qt-devel >= 3.0.5
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 OpenOffice.org Quickstarter is a small application that runs in the
