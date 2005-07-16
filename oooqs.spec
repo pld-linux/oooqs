@@ -8,7 +8,10 @@ Group:		X11/Applications
 Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
 # Source0-md5:	5d401aa7250f80734d785d4c286f635b
 URL:		http://segfaultskde.berlios.de/oooqs/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	kdebase-devel >= 3.0.5a
+BuildRequires:	libtool
 BuildRequires:	qt-devel >= 3.0.5
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,8 +33,12 @@ Office bez wchodzenia w menu.
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
 export CXXFLAGS
 
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+cp -f /usr/share/automake/config.sub .
 %configure
-
 %{__make}
 
 %install
