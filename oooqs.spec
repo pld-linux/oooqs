@@ -8,10 +8,8 @@ Group:		X11/Applications
 Source0:	http://download.berlios.de/segfaultskde/%{name}-%{version}.tar.gz
 # Source0-md5:	5d401aa7250f80734d785d4c286f635b
 URL:		http://segfaultskde.berlios.de/oooqs/
-BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdebase-devel >= 3.0.5a
-BuildRequires:	libtool
 BuildRequires:	qt-devel >= 3.0.5
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,14 +28,8 @@ Office bez wchodzenia w menu.
 %setup -q
 
 %build
-CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
-export CXXFLAGS
-
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-cp -f /usr/share/automake/config.sub .
+export CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
+cp -f /usr/share/automake/config.sub admin
 %configure
 %{__make}
 
@@ -46,12 +38,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	kde_htmldir=%{_kdedocdir} \
+	shelldesktopdir=%{_desktopdir}/kde
 
 %find_lang oooqs --with-kde
-
-install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
-cp src/oooqs.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
