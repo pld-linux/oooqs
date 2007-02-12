@@ -1,5 +1,5 @@
 Summary:	Open Office Quickstarter
-Summary(pl):	Szybszy start Open Office
+Summary(pl.UTF-8):   Szybszy start Open Office
 Name:		oooqs
 Version:	2.0.3
 Release:	0.1
@@ -19,9 +19,9 @@ OpenOffice.org Quickstarter is a small application that runs in the
 KDE SystemTray. It is used to quickly start the different
 OpenOffice.org modules without having to go through the K-Menu.
 
-%description -l pl
-Szybszy start Open Office jest ma³± aplikacj±, która uruchamia siê w
-KDE System Tray. Mo¿na go u¿ywaæ do przy¶pieszania startu modu³ów Open
+%description -l pl.UTF-8
+Szybszy start Open Office jest maÅ‚Ä… aplikacjÄ…, ktÃ³ra uruchamia siÄ™ w
+KDE System Tray. MoÅ¼na go uÅ¼ywaÄ‡ do przyÅ›pieszania startu moduÅ‚Ã³w Open
 Office bez wchodzenia w menu.
 
 %prep
