@@ -1,5 +1,5 @@
 Summary:	Open Office Quickstarter
-Summary(pl.UTF-8):   Szybszy start Open Office
+Summary(pl.UTF-8):	Szybszy start Open Office
 Name:		oooqs
 Version:	2.0.3
 Release:	0.1
